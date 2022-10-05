@@ -89,7 +89,7 @@ public class ServoJacob extends LinearOpMode {
             }
 
             // Display the current value
-            telemetry.addData("Servo Position", "%5.2f", position);
+            telemetry.addData("liftOne Servo Position", "%5.2f", position);
             telemetry.addData(">", "Press Stop to end test." );
             telemetry.update();
 
