@@ -29,27 +29,27 @@
 
 package org.firstinspires.ftc.teamcode.drive;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
-@TeleOp(name = "Jacob Servo")
+@TeleOp(name = "Jacob Servo 2")
 
-public class ServoJacob extends LinearOpMode {
+public class ServoJacob2 extends LinearOpMode {
 
-    static final double INCREMENT   = 0.01;     // amount to slew servo each CYCLE_MS cycle
- //   static final int    CYCLE_MS    =   50;   // period of each cycle
-    static final double MAX_POS     =  1.0;     // Maximum rotational position
-    static final double MIN_POS     =  0.0;     // Minimum rotational position
+    static final double INCREMENT = 0.01;     // amount to slew servo each CYCLE_MS cycle
+    //   static final int    CYCLE_MS    =   50;   // period of each cycle
+    static final double MAX_POS = 1.0;     // Maximum rotational position
+    static final double MIN_POS = 0.0;     // Minimum rotational position
 
-    enum Direction { FORWARD, REVERSE }         // Define direction of servo
+    enum Direction {FORWARD, REVERSE}         // Define direction of servo
 
     // Define class members
-    Servo  liftOne;
-    double  position = 0.0;// (MAX_POS - MIN_POS) / 2; // Start at halfway position
-   // boolean rampUp = true;
+    Servo liftOne;
+    Servo liftTwo;
+    double position = 0.0;// (MAX_POS - MIN_POS) / 2; // Start at halfway position
+    // boolean rampUp = true;
 
 
     @Override
@@ -59,30 +59,31 @@ public class ServoJacob extends LinearOpMode {
         // Change the text in quotes to match any servo name on your robot.
         liftOne = hardwareMap.get(Servo.class, "liftOne");
 
+
         liftOne.setDirection(Servo.Direction.FORWARD);
 
+
         // Wait for the start button
-        telemetry.addData(">", "Press Start to move lifeOne Servo with left_stick_y joystick." );
+        telemetry.addData(">", "Press Start to move lifeOne Servo with left_stick_y joystick.");
         telemetry.update();
         waitForStart();
 
 
         // Scan servo till stop pressed.
-        while(opModeIsActive()){
+        while (opModeIsActive()) {
 
             // slew the servo, according to the rampUp (direction) variable.
             if (gamepad1.left_stick_y < 0) {
                 // Keep stepping up until we hit the max value.
-                position += INCREMENT ;
-                if (position >= MAX_POS ) {
+                position += INCREMENT;
+                if (position >= MAX_POS) {
                     position = MAX_POS;
 
                 }
-            }
-            else if (gamepad1.left_stick_y > 0){
+            } else if (gamepad1.left_stick_y > 0) {
                 // Keep stepping down until we hit the minimum value.
-                position -= INCREMENT ;
-                if (position <= MIN_POS ) {
+                position -= INCREMENT;
+                if (position <= MIN_POS) {
                     position = MIN_POS;
 
                 }
@@ -90,7 +91,7 @@ public class ServoJacob extends LinearOpMode {
 
             // Display the current value
             telemetry.addData("liftOne Servo Position", "%5.2f", position);
-            telemetry.addData(">", "Press Stop to end test." );
+            telemetry.addData(">", "Press Stop to end test.");
             telemetry.update();
 
             // Set the servo to the new position and pause;
@@ -98,9 +99,45 @@ public class ServoJacob extends LinearOpMode {
             //sleep(CYCLE_MS);
             idle();
         }
+        // Servo Two
 
-        // Signal done;
-        telemetry.addData(">", "Done");
+        liftTwo = hardwareMap.get(Servo.class, "liftTwo");
+        liftTwo.setDirection(Servo.Direction.FORWARD);
+        telemetry.addData(">", "Press Start to move lifeTwo Servo with left_stick_y joystick.");
         telemetry.update();
+        waitForStart();
+
+        while (opModeIsActive()) {
+
+            // slew the servo, according to the rampUp (direction) variable.
+            if (gamepad1.left_stick_y < 0) {
+                // Keep stepping up until we hit the max value.
+                position -= INCREMENT;
+                if (position <= MAX_POS) {
+                    position = MAX_POS;
+
+                }
+            } else if (gamepad1.left_stick_y > 0) {
+                // Keep stepping down until we hit the minimum value.
+                position += INCREMENT;
+                if (position >= MIN_POS) {
+                    position = MIN_POS;
+
+                }
+            }
+
+            // Display the current value
+            telemetry.addData("liftTwo Servo Position", "%5.2f", position);
+            telemetry.addData(">", "Press Stop to end test.");
+            telemetry.update();
+
+            // Set the servo to the new position and pause;
+            liftTwo.setPosition(position);
+            //sleep(CYCLE_MS);
+            idle();
+            // Signal done;
+            telemetry.addData(">", "Done");
+            telemetry.update();
+        }
     }
 }
