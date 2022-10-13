@@ -84,7 +84,7 @@ public class CustomModelCodeTesting extends LinearOpMode {
      * and paste it in to your code on the next line, between the double quotes.
      */
     private static final String VUFORIA_KEY =
-            " -- YOUR NEW VUFORIA KEY GOES HERE  --- ";
+            "AYjyN7v/////AAABmZkzDnVgYED5uG0oVjDFNPU/IVXNIkVpEj5VY0d385xq3MN8tk1R/zBRduVWZPRSZBzSAyuJoJpgI79HeoJoMFQd/p0ZcytKFDckit+NkdDBJaBa1RXvpH8JufADNrmBkF8WhyUkFrROxOoCRsq1/TFrGaxicoJahSo6XUIk0YTfvIp5vJjzFWruq+IiAoWzChKdEA3GIEZE9Fufr2omudFjgF/k5JkIzQU01ou6Nrj59p0sndgCl+tIFKsDY/+WW28UpdFRz4lyR3apWeS+rtflqR52ofXjCF7sh08J7ZQ4Cqblwq2dOb0r/MoabLLxdSJdW15MH12ZDNNTxWttAkwgRxLdiiK44ogzcDByFAtb";
 
     /**
      * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
