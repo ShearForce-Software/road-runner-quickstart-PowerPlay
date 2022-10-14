@@ -42,7 +42,7 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import java.util.List;
 
 /**
- * This 2022-2023 OpMode illustrates the basics of using the TensorFlow Object Detection API to
+ * This 2022-2023 OpMode illustrates the basics of using the TFOD API to
  * determine which image is being presented to the robot.
  *
  * Use Android Studio to Copy this Class, and Paste it into your team's code folder with a new name.
